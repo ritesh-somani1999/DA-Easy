@@ -1,0 +1,40 @@
+{
+  "update_url": "https://clients2.google.com/service/update2/crx",
+  "manifest_version": 2,
+  "name": "VIT DA Easy",
+  "description": "All DAs at one place, Better Attendance Page",
+  "version": "1.0",
+  "author": "Ritesh Somani",
+  "permissions": [
+    "webRequest",
+    "downloads",
+    "cookies",
+    "storage",
+    "declarativeContent",
+    "activeTab",
+    "*://vtop.vit.ac.in/*"
+  ],
+  "background": {
+    "scripts": ["background.js"],
+    "persistent": true
+  },
+  "page_action": {
+    "default_popup": "popup.html"
+  },
+  "web_accessible_resources": [
+    "styles/general/*.css",
+    "styles/font/*.css",
+    "styles/font/*.ttf"
+  ],
+  "content_scripts": [
+    {
+      "matches": ["*://vtop.vit.ac.in/*"],
+      "js": [
+        "jquery.js",
+        "jquery.BlockUI.js",
+        "content.js",
+        "attendence.js"
+      ]
+    }
+  ]
+}
